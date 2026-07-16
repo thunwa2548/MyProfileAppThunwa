@@ -19,9 +19,8 @@ type Product = {
   image: string;
 };
 export default function Index() {
-  const PRODUCTS_URL =
-    "https://raw.githubusercontent.com/thunwa2548/MyProfileAppThunwa/refs/heads/main/app.json"
-
+    const PRODUCTS_URL =
+  "https://raw.githubusercontent.com/thunwa2548/MyProfileAppThunwa/main/product.json";
   const [products, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState("");
 
