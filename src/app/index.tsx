@@ -1,6 +1,5 @@
-import products from "../../product.json";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FlatList,
   Image,
@@ -11,9 +10,28 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
+type Product = {
+  id: string;
+  name: string;
+  price: string;
+  stock: number;
+  category: string;
+  image: string;
+};
 export default function Index() {
+  const PRODUCTS_URL =
+    "https://raw.githubusercontent.com/thunwa2548/MyProfileAppThunwa/refs/heads/main/app.json"
+
+  const [products, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    fetch(PRODUCTS_URL)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   const data = products.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
