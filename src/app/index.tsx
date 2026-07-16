@@ -1,3 +1,4 @@
+import products from "../../product.json";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import {
@@ -13,37 +14,6 @@ import {
 
 export default function Index() {
   const [search, setSearch] = useState("");
-
-  const [products] = useState([
-    {
-      id: "1",
-      name: "Rolex Submariner",
-      price: "350000",
-      stock: 5,
-      category: "Luxury",
-      image:
-        "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400",
-    },
-    {
-      id: "2",
-      name: "Omega Speedmaster",
-      price: "280000",
-      stock: 3,
-      category: "Classic",
-      image:
-        "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400",
-    },
-    {
-      id: "3",
-      name: "Tag Heuer Carrera",
-      price: "180000",
-      stock: 8,
-      category: "Sport",
-      image:
-        "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=400",
-    },
-  ]);
-
   const data = products.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
